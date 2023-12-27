@@ -9,6 +9,9 @@ import { MaterialModule } from './material/material.module';
 import { NavComponent } from './shared/nav/nav.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { FormsModule } from '@angular/forms';
+import { DashboardListComponent } from './components/dashboard-list/dashboard-list.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,16 @@ import { LoginComponent } from './components/login/login.component';
     ProductosComponent,
     NavComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    DashboardComponent,
+    DashboardListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,7 +2,9 @@
     <mat-toolbar color="primary">
     <span>Tienda App</span>
     <span class="example-spacer"></span>
-
-    <button type="button" class="btn btn-primary">Iniciar Sesion</button>
+    <button *ngIf="!ruta() ; else otraruta" type="button" class="btn btn-primary" (click)="openDialog()">Iniciar Sesion</button>
+    <ng-template #otraruta>
+      <button mat-raised-button color="warn" (click)="cerrarSesion()">Cerrar Sesion</button>
+    </ng-template>
   </mat-toolbar>
-  </p>
+</p>

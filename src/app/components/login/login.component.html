@@ -1,1 +1,19 @@
-<p>login works!</p>
+<div class="container p-4">
+  <h2 mat-dialog-title class="text-center fs-2">Login</h2>
+<mat-dialog-content class="mat-typography">
+    <div class="mb-3">
+      <label for="username" class="form-label">Username:</label>
+      <input type="text" class="form-control" id="username" [(ngModel)]="username" />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="password" />
+    </div>
+  
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button type="button" class="btn btn-primary m-2" (click)="ingresar()">Submit</button>
+</mat-dialog-actions>
+
+</div>
