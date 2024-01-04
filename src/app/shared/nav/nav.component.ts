@@ -9,13 +9,18 @@ import { LoginServiceService } from 'src/app/services/loginService/login-service
 })
 export class NavComponent implements OnInit {
 
-
+  username! : string | null;
 
   constructor(private loginService : LoginServiceService , private router : Router) { 
+
   }
 
   ngOnInit(): void {
+      this.loginService.username$.subscribe(r => {
 
+        this.username = r;
+
+      })
   }
 
   ruta():boolean{

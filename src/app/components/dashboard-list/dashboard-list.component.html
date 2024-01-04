@@ -17,9 +17,9 @@
             <td>{{producto.description}}</td>
             <td>{{producto.price|currency}}</td>
             <td class="text-center">
-                <button type="button" class="btn btn-secondary m-1">Ver</button>
+                <button type="button" class="btn btn-secondary m-1" (click)="verDetalles(producto.id)">Ver</button>
                 <button type="button" class="btn btn-warning m-1">Modificar</button>
-                <button type="button" class="btn btn-danger">Eliminar</button>
+                <button type="button" class="btn btn-danger" (click)="openEliminar(producto.id)">Eliminar</button>
             </td>
           </tr>
         </tbody>

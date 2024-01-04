@@ -1,14 +1,8 @@
 <div class="container container-fluid d-flex flex-wrap flex-column">
   <mat-list role="list" class="d-flex justify-content-between">
     <mat-list-item role="listitem">
-      <button type="button" class="btn btn-success">Agregar Producto</button>
+      <button type="button" (click)="openAddProduct()" class="btn btn-success">Agregar Producto</button>
     </mat-list-item>
-    <div class="headerUser rounded-3 d-flex justify-content-center p-2">
-        <h3 class="fs-2">
-          {{ username | titlecase }} 
-        </h3>
-      <i id="user" class="bi bi-person-fill"></i>
-    </div>
   </mat-list>
   <app-dashboard-list></app-dashboard-list>
 </div>

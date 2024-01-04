@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductoServiceService } from 'src/app/services/productoService/producto-service.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,13 +9,19 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
 
 
-  username;
+  constructor(private productDialog : ProductoServiceService) { 
 
-  constructor() { 
-    this.username = localStorage.getItem('usuario')
   }
 
   ngOnInit(): void {
   }
+
+
+  openAddProduct(){
+    this.productDialog.openAddProduct();
+  }
+
+
+
 
 }

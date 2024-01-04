@@ -1,0 +1,28 @@
+<div *ngIf="producto ; else carga" class="p-4">
+    <h1 mat-dialog-title class="text-center">Detalles del Producto</h1>
+    <div mat-dialog-content>
+      <h2>{{ producto.title | titlecase }}</h2>
+      <div class="container">
+          <img
+            id="productoImg"
+            [src]="producto.image"
+            alt="Imagen del producto"
+          />
+      </div>
+      <span>{{ producto.price | currency }}</span>
+      <p class="text-center">
+        {{ producto.description }}
+      </p>
+    </div>
+  </div>
+
+  <div class="container">
+    <button mat-button mat-dialog-close class="m-2">Cancel</button>
+    <button type="button" class="btn btn-danger">Eliminar</button>
+  </div>
+
+
+  <ng-template #carga>
+    <mat-spinner></mat-spinner>
+  </ng-template>
+  

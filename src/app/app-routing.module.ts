@@ -4,6 +4,7 @@ import { ProductosComponent } from './components/productos/productos.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginGuardGuard } from './guards/login-guard.guard';
 import { Page404Component } from './shared/page404/page404.component';
+import { Page403Component } from './shared/page403/page403.component';
 
 const routes: Routes = [
 
@@ -17,6 +18,10 @@ const routes: Routes = [
     component : DashboardComponent,
     canActivate : [LoginGuardGuard],
     data : {roles :['admin']}
+  },
+  {
+    path : '403',
+    component : Page403Component
   },
   {
     path : '404',

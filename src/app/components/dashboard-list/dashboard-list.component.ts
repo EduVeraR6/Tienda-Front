@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/interfaces/producto.interface';
 import { DataServiceService } from 'src/app/services/dataService/data-service.service';
+import { ProductoServiceService } from 'src/app/services/productoService/producto-service.service';
 
 const ELEMENT_DATA : Producto[]=[
   {
@@ -22,7 +23,7 @@ export class DashboardListComponent implements OnInit {
   productos! : Producto[] ;
 
 
-  constructor(private dataService : DataServiceService) { 
+  constructor(private dataService : DataServiceService , private productoService : ProductoServiceService) { 
   }
 
   ngOnInit(): void {
@@ -33,5 +34,16 @@ export class DashboardListComponent implements OnInit {
     })
     
   }
+
+
+  verDetalles(id : number){
+    this.productoService.openProductoDetalles(id);
+  }
+
+  openEliminar(id : number){
+    this.productoService.openProductoDelete(id);
+  }
+
+
 
 }

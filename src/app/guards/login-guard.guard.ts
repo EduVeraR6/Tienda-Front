@@ -30,12 +30,12 @@ export class LoginGuardGuard implements CanActivate {
       if (routeData.roles && routeData.roles.some(role => roles.includes(role))) {
         return true; 
       } else {
-        this.router.navigate(['404']); 
+        this.router.navigate(['403']); 
         return false;
       }
     } else {
       
-      this.router.navigate(['']);
+      this.router.navigate(['403']);
       return false;
     }
   }

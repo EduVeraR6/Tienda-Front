@@ -1,10 +1,34 @@
 <p>
-    <mat-toolbar id="nav">
-    <span>Tienda App</span>
+  <mat-toolbar id="nav">
+    <button mat-button="basic" routerLink="">
+      <span class="fs-1">Tienda App</span>
+    </button>
     <span class="example-spacer"></span>
-    <button *ngIf="!ruta() ; else otraruta" type="button" class="btn btn-primary" (click)="openDialog()">Iniciar Sesion</button>
+
+    <p class="m-4"  *ngIf="!ruta()">
+      <span matBadge="4" matBadgeOverlap="false">
+        <button
+          mat-icon-button
+          aria-label="Example icon button with a vertical three dot icon"
+        >
+          <i class="bi bi-cart-fill fs-2"></i>
+        </button>
+      </span>
+    </p>
+
+    <button
+      *ngIf="!ruta(); else otraruta"
+      type="button"
+      class="btn btn-primary"
+      (click)="openDialog()"
+    >
+      Iniciar Sesion
+    </button>
     <ng-template #otraruta>
-      <button mat-raised-button color="warn" (click)="cerrarSesion()">Cerrar Sesion</button>
+      <span class="m-2">{{ username | titlecase }}</span>
+      <button mat-raised-button color="warn" (click)="cerrarSesion()">
+        Cerrar Sesion
+      </button>
     </ng-template>
   </mat-toolbar>
 </p>
