@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ProductosComponent } from './components/productos/productos.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { LoginGuardGuard } from './guards/login-guard.guard';
+import { Page404Component } from './shared/page404/page404.component';
 
 const routes: Routes = [
 
@@ -12,11 +14,17 @@ const routes: Routes = [
   },
   {
     path:'dashboard',
-    component : DashboardComponent
+    component : DashboardComponent,
+    canActivate : [LoginGuardGuard],
+    data : {roles :['admin']}
+  },
+  {
+    path : '404',
+    component :Page404Component
   },
   {
     path:'**',
-    redirectTo : '' 
+    redirectTo : '404' 
   }
 
 ];

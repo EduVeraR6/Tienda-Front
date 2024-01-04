@@ -12,6 +12,8 @@ import { LoginComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FormsModule } from '@angular/forms';
 import { DashboardListComponent } from './components/dashboard-list/dashboard-list.component';
+import { Page404Component } from './shared/page404/page404.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,14 +23,16 @@ import { DashboardListComponent } from './components/dashboard-list/dashboard-li
     FooterComponent,
     LoginComponent,
     DashboardComponent,
-    DashboardListComponent
+    DashboardListComponent,
+    Page404Component
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

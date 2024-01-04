@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { LoginComponent } from 'src/app/components/login/login.component';
 import { User } from 'src/app/interfaces/user.interface';
 
@@ -8,12 +9,25 @@ import { User } from 'src/app/interfaces/user.interface';
 })
 export class LoginServiceService {
 
-  userService : string = "eduardo"; 
-  passService : string = "123";
+
+  users : User[]=[
+    {
+      username :'admin',
+      password :'123' 
+    },
+    {
+      username :'eduardo',
+      password: '123'
+    }
+  ]
+
+
+  isAuthenticated : boolean = false;
   valido : boolean = false;
+  roles : string[] = [];
 
 
-  constructor(private dialog:MatDialog) { }
+  constructor(private dialog:MatDialog , private router : Router) { }
 
   openLogin(){
 
@@ -38,12 +52,34 @@ export class LoginServiceService {
 
 
   validarUsuario(user: User):Boolean{
-    if((this.userService == user.username && this.passService == user.password)){
+    
+    const userFind = this.users.find(u => u.username == user.username && u.password == user.password)
+    if(userFind){
+      localStorage.setItem("usuario" , userFind.username)
+      this.isAuthenticated = true;
+      this.roles = ["admin"];
       return this.valido = true;
     } 
     return this.valido;
   }
 
 
+
+  cerrarSesion(){
+    localStorage.clear();
+    this.isAuthenticated=false;
+    this.roles = [];
+    this.router.navigateByUrl('')
+  }
+
+
+  usuarioAutenticado():boolean{
+    return this.isAuthenticated;
+  }
+
+
+  hasRole(role : string): boolean{
+    return this.isAuthenticated && this.roles.includes(role); 
+  }
 
 }

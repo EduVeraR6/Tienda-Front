@@ -12,10 +12,10 @@ export class NavComponent implements OnInit {
 
 
   constructor(private loginService : LoginServiceService , private router : Router) { 
-
   }
 
   ngOnInit(): void {
+
   }
 
   ruta():boolean{
@@ -27,7 +27,7 @@ export class NavComponent implements OnInit {
   }
 
   cerrarSesion(){
-    this.router.navigateByUrl('');
+    this.loginService.cerrarSesion();
   }
 
 

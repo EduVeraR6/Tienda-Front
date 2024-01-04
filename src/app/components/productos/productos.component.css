@@ -1,7 +1,10 @@
 .example-card {
-    max-width: 300px;
+    max-width: 500px;
+    max-height: auto;
 }
-.example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+
+#productoImg{
+    width:400px;
+    height: 400px;
     background-size: cover;
 }
